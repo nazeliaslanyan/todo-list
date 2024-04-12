@@ -1,13 +1,12 @@
-<script >
-
+<script>
+import TodoList from './components/TodoList/TodoList.vue'
+export default {
+  components: {
+        TodoList
+  }
+}
 </script>
-
 <template>
   <main>
-
-  </main>
- </template>
-
-<style scoped>
-
-</style>
+    </main>
+  </template>
