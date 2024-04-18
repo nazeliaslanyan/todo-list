@@ -8,4 +8,6 @@ export default {
   }
 }
 </script>
-<template></template>
+<template>
+  <TodoList/>
+</template>
