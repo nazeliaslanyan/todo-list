@@ -14,11 +14,13 @@
       </v-row>
     </v-container>
 
-  <v-container>
-  <v-row>
-  <task v-for="taskData in tasks" :data="taskData" :key="taskData._id"/>
-</v-row>
-</v-container>
+    <v-container>
+      <v-row>
+        <v-col v-for="taskData in tasks" :key="taskData._id" :cols="12 / tasks.length">
+          <task :data="taskData" />
+        </v-col>
+      </v-row>
+    </v-container>
 
   </template>
   
