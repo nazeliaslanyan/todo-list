@@ -4,14 +4,12 @@ import Task from '../Task/Task.vue'
 import TaskApi from '../../utils/taskApi.js'
 
 const taskApi = new TaskApi()
-         
 
 export default {
   components: {
     TaskModal,
     Task
   },
-  
   data() {
     return {
       isTaskModalOpen: false,

@@ -1,34 +1,33 @@
 import Datepicker from '@vuepic/vue-datepicker'
 import '@vuepic/vue-datepicker/dist/main.css'
 
-export default {
-  components: {
+export default{
+  components:{
     Datepicker
   },
-  props: {
-    isOpen: {
+  props:{
+    isOpen:{
       type: Boolean,
       required: true
     }
   },
-  data() {
-    return {
+  data(){
+    return{
       title: '',
       description: '',
       dueDate: ''
     }
   },
-  methods: {
-    onClose() {
+  methods:{
+    onClose(){
       this.$emit('close')
     },
-    onSave() {
-      const newTask = {
-        
+    onSave(){
+      const newTask = { 
       title: this.title.trim(),
       description: this.description
     }
-    if (this.dueDate) {
+    if (this.dueDate){
       newTask.date = this.dueDate.toISOString().slice(0, 10)
     }
       this.$emit('taskSave', newTask)
@@ -37,8 +36,8 @@ export default {
       this.title = event.target.value
     }
   },
-  computed: {
-    isTitleValid() {
+  computed:{
+    isTitleValid(){
       return !!this.title.trim()
     }
   }
