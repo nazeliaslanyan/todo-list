@@ -18,6 +18,7 @@ export default {
   },
   created() {
     this.getTasks()
+   
   },
   methods: {
     toggleTaskModal() {
@@ -31,7 +32,7 @@ export default {
           this.tasks = tasks
         })
         .catch((err) => {
-          console.log('err', err)
+          this.$toast.error(err.message)
         })
         },
         onTaskSave(task) {
@@ -40,9 +41,10 @@ export default {
         .then((newTask) => {
           this.tasks.push(newTask)
           this.toggleTaskModal()
-        })
+          this.$toast.success("The task have been created successfully!")
+         })
         .catch((err) => {
-          console.log('err', err)
+          this.$toast.error(err.message)
         })
     }
   }
