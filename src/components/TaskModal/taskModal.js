@@ -1,45 +1,64 @@
 import Datepicker from '@vuepic/vue-datepicker'
 import '@vuepic/vue-datepicker/dist/main.css'
 
-export default{
-  components:{
+export default {
+  components: {
     Datepicker
   },
-  props:{
-    isOpen:{
+  props: {
+    isOpen: {
       type: Boolean,
       required: true
-    }
+    },
+    editingTask: Object
   },
-  data(){
-    return{
+  data() {
+    return {
       title: '',
       description: '',
       dueDate: ''
     }
   },
-  methods:{
-    onClose(){
+  created() {
+    if (this.editingTask) {
+      const { title, description, dueDate } = this.editingTask
+      this.title = title
+      this.description = description
+      this.dueDate = this.editingTask.date ? new Date(this.editingTask.date) : ""
+    }
+  },
+  methods: {
+    onClose() {
       this.$emit('close')
     },
-    onSave(){
-      const newTask = { 
-      title: this.title.trim(),
-      description: this.description
-    }
-    if (this.dueDate){
-      newTask.date = this.dueDate.toISOString().slice(0, 10)
-    }
-      this.$emit('taskSave', newTask)
+    onSave() {
+      const task = {
+        title: this.title.trim(),
+        description: this.description
+      }
+      if (this.dueDate) {
+        task.date = this.dueDate.toISOString().slice(0, 10)
+      }
+      if (this.editingTask) {
+
+        this.$emit('taskSave', {
+          ...this.editingTask,
+          ...task
+        })
+        return
+      }
+      this.$emit('taskAdd', task)
     },
     onTitleInput(event) {
       this.title = event.target.value
     }
   },
-  computed:{
-    isTitleValid(){
+  computed: {
+    isTitleValid() {
       return !!this.title.trim()
+    },
+    modalTitle() {
+      return "Add new task"
     }
   }
 }
- 
