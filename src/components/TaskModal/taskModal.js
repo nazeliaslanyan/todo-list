@@ -57,7 +57,10 @@ export default {
       return !!this.title.trim()
     },
     modalTitle() {
-      return "Add new task"
+      if (this.editingTask) {
+        return 'Edit task'
+      }
+      return 'Add new task'
     }
   }
 }
