@@ -14,13 +14,14 @@
     <v-card-text>Data date: {{ dueDate }} </v-card-text>
 
     <v-card-actions>
-      <v-btn color="success" variant="elevated">
-        <v-icon icon="mdi-check-outline" />
+      <v-btn color="success" variant="elevated" @click="onChangeStatus">
+        <v-icon v-if="active" icon="mdi-check-outline" />
+        <v-icon v-else icon="mdi mdi-emoticon-excited-outline" />
       </v-btn>
       <v-btn color="warning" variant="elevated" @click="onEdit">
         <v-icon icon="mdi-archive-edit-outline" />
       </v-btn>
-      <v-btn color="error" variant="elevated">
+      <v-btn color="error" variant="elevated" @click="onDelete">
         <v-icon icon="mdi-delete-outline" />
       </v-btn>
     </v-card-actions>

@@ -11,7 +11,7 @@
 
     <v-row align="center" justify="center">
       <v-col cols="auto">
-        <v-btn color="info" @click="toggleTaskModal">Add new task</v-btn>
+        <v-btn  color="info" @click="toggleTaskModal">Add new task</v-btn>
       </v-col>
     </v-row>
   </v-container>
@@ -19,7 +19,7 @@
   <v-container>
     <v-row>
       <v-col v-for="taskData in tasks" :key="taskData._id" cols="12" xs="12" sm="6" md="4" lg="3">
-        <task :data="taskData" @taskEdit="onTaskEdit(taskData)" />
+        <task :data="taskData"  @changeTaskStatus="onTaskChecked" @taskEdit="onTaskEdit(taskData)" @taskDelete="onTaskDelete(taskData._id)" />
       </v-col>
     </v-row>
   </v-container>

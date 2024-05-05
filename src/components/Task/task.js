@@ -1,13 +1,13 @@
 
-export default{
+export default {
 
-props:{
+  props: {
     data: {
-        type: Object,
-        required: true
+      type: Object,
+      required: true
     }
-},
-computed: {
+  },
+  computed: {
     createdAt() {
       return this.data.created_at.slice(0, 10)
     },
@@ -16,8 +16,20 @@ computed: {
     }
   },
   methods: {
+    onChangeStatus() {
+      const task = {};
+      task.date = this.data.date ? new Date(this.data.date).toISOString().slice(0, 10) : "";
+      task.status = this.data.status === "active" ? "done" : "active";
+      this.$emit("changeTaskStatus", {
+        ...this.data,
+        ...task
+      });
+    },
     onEdit() {
       this.$emit('taskEdit')
+    },
+    onDelete() {
+      this.$emit('taskDelete')
+    }
   }
-}
 }
