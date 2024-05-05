@@ -38,9 +38,11 @@ export default {
       }
       if (this.dueDate) {
         task.date = this.dueDate.toISOString().slice(0, 10)
+      } else {
+        task.date = ''
       }
-      if (this.editingTask) {
 
+      if (this.editingTask) {
         this.$emit('taskSave', {
           ...this.editingTask,
           ...task
@@ -48,9 +50,6 @@ export default {
         return
       }
       this.$emit('taskAdd', task)
-    },
-    onTitleInput(event) {
-      this.title = event.target.value
     }
   },
   computed: {
