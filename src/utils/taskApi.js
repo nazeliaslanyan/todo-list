@@ -13,6 +13,20 @@ class TaskApi {
       params.body = JSON.stringify(body)
     }
 
+
+
+  request(method, url = '', body) {
+    const params = {
+      method,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    if (body) {
+      params.body = JSON.stringify(body)
+    }
+
+
     const host = `${this.apiHost}/task/${url}`
     return fetch(host, params).then(async (res) => {
       if (res.status >= 500) {
@@ -34,9 +48,14 @@ class TaskApi {
   // getSingleTask(taskId) {
   //   return this.request('GET', taskId)
   // }
-  // deleteTask(taskId) {
-  //   return this.request('DELETE', taskId)
+  deleteTask(taskId) {
+    return this.request('DELETE', taskId)
+  }
+  }
+  // getSingleTask(taskId) {
+  //   return this.request('GET', taskId)
   // }
+
   updateTask(task) {
     return this.request('PUT', task._id, task)
   }
