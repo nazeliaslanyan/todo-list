@@ -58,6 +58,7 @@ export default {
 
     onTitleInput(event) {
       this.title = event.target.value
+
     }
   },
   computed: {
@@ -65,6 +66,10 @@ export default {
       return !!this.title.trim()
     },
     modalTitle() {
+      if (this.editingTask) {
+        return 'Edit task'
+      }
+
       return 'Add new task'
     }
   }

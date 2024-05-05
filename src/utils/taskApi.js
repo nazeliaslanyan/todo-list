@@ -1,3 +1,4 @@
+
 class TaskApi {
   apiHost = import.meta.env.VITE_API_HOST
 
@@ -11,6 +12,20 @@ class TaskApi {
     if (body) {
       params.body = JSON.stringify(body)
     }
+
+
+
+  request(method, url = '', body) {
+    const params = {
+      method,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    if (body) {
+      params.body = JSON.stringify(body)
+    }
+
 
     const host = `${this.apiHost}/task/${url}`
     return fetch(host, params).then(async (res) => {
@@ -36,6 +51,11 @@ class TaskApi {
   deleteTask(taskId) {
     return this.request('DELETE', taskId)
   }
+  }
+  // getSingleTask(taskId) {
+  //   return this.request('GET', taskId)
+  // }
+
   updateTask(task) {
     return this.request('PUT', task._id, task)
   }
