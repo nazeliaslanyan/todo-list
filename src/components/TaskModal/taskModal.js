@@ -21,10 +21,10 @@ export default {
   },
   created() {
     if (this.editingTask) {
-      const { title, description, date } = this.editingTask
-      this.title = title
-      this.description = description
-      this.dueDate = date ? new Date(date) : ""
+      const { title, description, date } = this.editingTask;
+      this.title = title;
+      this.description = description;
+      this.dueDate = date ? new Date(date) : '';
     }
   },
   mounted() {
