@@ -1,6 +1,5 @@
 
 export default {
-
   props: {
     data: {
       type: Object,
@@ -16,7 +15,10 @@ export default {
     },
     active() {
       return this.data.status === "active";
-    }
+    },
+    checked() {
+      return this.data.status === "active" ? "success" : "primary";
+    },
   },
 
   methods: {
