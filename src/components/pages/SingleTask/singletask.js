@@ -1,5 +1,5 @@
 
-import TaskApi from '../../../../utils/taskApi'
+import TaskApi from '../../../utils/taskApi'
 import TaskModal from '@/components/TaskModal/TaskModal.vue';
 
 const taskApi = new TaskApi()
