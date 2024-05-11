@@ -1,7 +1,7 @@
 <template>
 
   <v-container>
-    <task-modal v-if="isEditModalOpen" :isOpen="isEditModalOpen" :editingTask="editingTask" @close="toggleTaskModal"
+    <task-modal v-if="isEditModalOpen" :isOpen="isEditModalOpen" :editingTask="task" @close="toggleTaskModal"
       @taskSave="onTaskSave" />
   </v-container>
 
@@ -23,10 +23,11 @@
 
     <v-card-actions>
       <v-btn color="success" variant="elevated" @click="onChangeStatus">
+
         <v-icon v-if="active" icon="mdi-check-outline" />
         <v-icon v-else icon="mdi mdi-restore" />
       </v-btn>
-      <v-btn color="warning" variant="elevated" @click="onEdit">
+      <v-btn color="warning" variant="elevated" @click="toggleTaskModal">
         <v-icon icon="mdi-archive-edit-outline" />
       </v-btn>
       <v-btn color="error" variant="elevated" @click="onDelete">

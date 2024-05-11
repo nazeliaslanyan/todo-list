@@ -32,11 +32,9 @@
 
         </div>
         <div class="workers-pic">
-            <img src="./assests/pictures/worker3.webp" alt="worker-pic" class="picture1">
-            <img src="./assests/pictures/worker1.jpg" alt="worker-pic" class="picture2">
-
+            <v-img src="../../../assets/pictures/worker3.webp" alt="" class=""></v-img>
+            <v-img src="../../../assets/pictures/worker1.jpg" alt="" class=""></v-img>
         </div>
-
 
     </main>
 </template>

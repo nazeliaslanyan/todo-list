@@ -1,4 +1,4 @@
-
+import { mapMutations } from 'vuex';
 import TaskApi from '../../../utils/taskApi'
 import TaskModal from '@/components/TaskModal/TaskModal.vue';
 
@@ -33,9 +33,12 @@ export default {
   },
 
   methods: {
+    ...mapMutations(['toggleLoading']),
+
     toggleTaskModal() {
-      this.isEditModalOpen = !this.isEditModalOpen
+      this.isEditModalOpen = !this.isEditModalOpen;
     },
+
     getTask() {
       const taskId = this.$route.params.taskId
       taskApi
@@ -46,28 +49,50 @@ export default {
         .catch(this.handleError)
     },
 
-    onTaskSave() {
+    onTaskSave(editingTask) {
+      this.toggleLoading();
+      this.task = editingTask;
+      taskApi
+        .updateTask(editingTask)
+        .then(() => {
+          this.toggleTaskModal();
+          this.$toast.success('The task has been updated successfully!');
+        })
+        .catch(this.handleError)
+        .finally(() => {
+          this.toggleLoading();
+        })
     },
-
-    onChangeStatus() {
-    },
-
-    onEdit() {
-
-    },
-    onSave(updatedTask) {
-      console.log('updatedTask', updatedTask)
+    onChangeStatus(editingTask) {
+      this.toggleLoading();
+      taskApi
+        .updateTask(editingTask)
+        .then(() => {
+          this.task.status = editingTask.status === 'active' ? 'done' : 'active';
+          let message = this.task.status === 'done' ? 'The task have been done!' : 'The task have been active!';
+          this.$toast.success(message);
+        })
+        .catch(this.handleError)
+        .finally(() => {
+          this.toggleLoading();
+        })
     },
     onDelete() {
+      this.toggleLoading();
       const taskId = this.task._id
       taskApi
         .deleteTask(taskId)
         .then(() => {
           this.$router.push('/')
-          this.$toast.success('The task have been deleted successfully!')
+          this.$toast.success('The task has been deleted successfully!')
         })
         .catch(this.handleError)
+
+        .finally(() => {
+          this.toggleLoading();
+        })
     },
+
     handleError(error) {
       this.$toast.error(error.message)
     }

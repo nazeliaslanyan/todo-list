@@ -67,6 +67,7 @@ export default {
         })
     },
     onTaskStatusChange(editedTask) {
+      this.toggleLoading();
       taskApi
         .updateTask(editedTask)
         .then((updatedTask) => {
@@ -80,8 +81,12 @@ export default {
           this.$toast.success(message)
         })
         .catch(this.handleError)
+        .finally(() => {
+          this.toggleLoading()
+        })
     },
     onTaskSave(editedTask) {
+      this.toggleLoading();
       taskApi
         .updateTask(editedTask)
         .then((updatedTask) => {
@@ -90,6 +95,9 @@ export default {
           this.$toast.success('The task have been updated successfully!')
         })
         .catch(this.handleError)
+        .finally(() => {
+          this.toggleLoading()
+        })
     },
     findAndReplaceTask(updatedTask) {
       const index = this.tasks.findIndex((t) => t._id === updatedTask._id)
@@ -101,14 +109,32 @@ export default {
     onTaskEdit(editingTask) {
       this.editingTask = editingTask
     },
+    onTaskChecked(editedTask) {
+      this.toggleLoading();
+      taskApi
+        .updateTask(editedTask)
+        .then((updatedTask) => {
+          this.findAndReplaceTask(updatedTask);
+          let message = updatedTask.status === 'done' ? 'The task has been done!' : 'The task has been active!';
+          this.$toast.success(message);
+        })
+        .catch(this.handleError)
+        .finally(() => {
+          this.toggleLoading()
+        })
+    },
     onTaskDelete(taskId) {
+      this.toggleLoading();
       taskApi
         .deleteTask(taskId)
         .then(() => {
           this.tasks = this.tasks.filter((t) => t._id !== taskId)
-          this.$toast.success('The task have been deleted successfully!')
+          this.$toast.success('The task has been deleted successfully!')
         })
         .catch(this.handleError)
+        .finally(() => {
+          this.toggleLoading()
+        })
     }
   }
 }
