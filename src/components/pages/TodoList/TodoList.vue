@@ -6,13 +6,13 @@
     <confirm-dialog :isOpen="isDeleteDialogOpen" title="Attention!" :text="confirmDialogText"
       @close="toggleDeleteDialog" @confirm="onSelectedTasksDelete" />
 
-    <h2 class=text-h4>
-      Welcome to our To Do List page!</h2>
-    <h4 class="pa-3">Here, you can efficiently manage your tasks with just a few clicks.</h4>
-    <h4><i> Whether you need to add, delete, edit, or restore tasks, our intuitive interface makes it simple.
+    <v-card-title class="text-center text-h4 text-md-h5 text-lg-h3 mt-5">Welcome to our To Do List page!</v-card-title>
+    <v-card-text class="text-center text-h6">Here, you can efficiently manage your tasks with just a few
+      clicks. <i>
+        <p> Whether you need to add, delete, edit, or restore tasks, our
+          intuitive interface makes it simple.</p>
       </i>
-    </h4>
-
+    </v-card-text>
     <v-row justify="center">
       <v-col cols=" auto" class="d-flex pa-7" sm=" 6">
         <v-btn color="info" @click="toggleTaskModal">Add new task</v-btn>

@@ -1,8 +1,11 @@
 <template>
-  <h2 class=text-h4>
-    Contact Us</h2>
+  <v-card-title class="text-center text-h4 text-md-h5 text-lg-h3 mt-16">Contact us</v-card-title>
+  <v-card-text class="text-center text-h6">For inquiries, feedback, or assistance,
+    please feel free to reach out to us.
+    <p>We value your communication and strive to provide prompt responses to all inquiries.</p>
+  </v-card-text>
   <v-container>
-    <v-card class="mx-auto mb-2 mt-10 ps-5" elevation="16" color="green-lighten-5" max-width="600">
+    <v-card class="mx-auto" color="green-lighten-3" max-width="1000">
       <v-row align="center" justify="center">
         <v-col cols="12" lg="6" md="6" sm="8" xs="12">
           <v-sheet class="mx-auto">

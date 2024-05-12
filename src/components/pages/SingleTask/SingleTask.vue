@@ -4,24 +4,25 @@
     <task-modal v-if="isEditModalOpen" :isOpen="isEditModalOpen" :editingTask="task" @close="toggleTaskModal"
       @taskSave="onTaskSave" />
   </v-container>
+  <v-card-title class="text-center text-h4 text-md-h5 text-lg-h3 mt-16"> Your Task</v-card-title>
 
-  <v-card v-if="task" class="mx-auto mb-2 mt-10 ps-5" elevation="16" color="green-lighten-5" max-width="600">
+
+  <v-card v-if="task" class="mx-auto mb-2 mt-10 ps-5" elevation="16" color="white-lighten-5" max-width="600">
     <v-card-item>
-      <v-card-title class="text-wrap"> {{ task.title }} </v-card-title>
+      <v-card-title class="text-wrap text-center"> {{ task.title }} </v-card-title>
     </v-card-item>
-
     <v-card-text>
       {{ task.description }}
     </v-card-text>
 
-    <v-card-text class="pt-0"> Status: {{ task.status }} </v-card-text>
+    <v-card-text class="pt-0 text-center"> Status: {{ task.status }} </v-card-text>
 
-    <v-card-text class="pt-0"> Created at: {{ createdAt }} </v-card-text>
+    <v-card-text class="pt-0 text-center"> Created at: {{ createdAt }} </v-card-text>
 
-    <v-card-text class="pt-0"> Due date: {{ dueDate }} </v-card-text>
+    <v-card-text class="pt-0 text-center"> Due date: {{ dueDate }} </v-card-text>
 
 
-    <v-card-actions>
+    <v-card-actions class="d-flex justify-center">
       <v-btn :color="checked" variant="elevated" @click="onChangeStatus">
         <v-icon v-if="task.status === 'active'" icon="mdi-check-outline" />
         <v-icon v-else icon="mdi mdi-restore" />

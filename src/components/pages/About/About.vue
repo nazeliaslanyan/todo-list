@@ -1,8 +1,7 @@
 <template>
     <main>
-        <h2 class=text-h4>
-            About our website</h2>
-        <div class="pa-3">
+        <v-card-title class="text-center text-h4 text-md-h5 text-lg-h3 mt-16">About To-do lists</v-card-title>
+        <v-card-text class="text-h6 mt-5 px-5">
             Welcome to our website!
             We are a team of passionate developers dedicated to creating useful tools and applications
             to enhance your productivity and simplify your daily tasks. Our mission is to provide you with intuitive and
@@ -31,17 +30,43 @@
             our
             website enriches your life in meaningful ways.
 
+        </v-card-text>
+
+        <div>
+            <div class="picture1">
+                <img :src="aboutUsPic1" alt="worker-pic">
+            </div>
+            <div class="picture1">
+                <img :src="aboutUsPic2" alt="worker-pic">
+            </div>
         </div>
-        <!-- <v-image :src="require('@/assets/Images/worker1.jpg')" alt="Woker 1"></v-image> -->
-
-
-
     </main>
 </template>
+
+<script>
+import aboutUsPic1 from '@/assets/worker1.jpg';
+import aboutUsPic2 from '@/assets/worker3.webp';
+
+export default {
+    data() {
+        return {
+            aboutUsPic1: aboutUsPic1,
+            aboutUsPic2: aboutUsPic2
+        }
+    }
+}
+</script>
 <style scoped>
 h2,
 div {
     text-align: center;
     color: #0f2950;
+}
+
+.picture2 {
+    width: 600px;
+    height: 300px;
+    margin: 80px 40px;
+    border-radius: 7px;
 }
 </style>
