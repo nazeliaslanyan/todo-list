@@ -1,7 +1,8 @@
 <template>
     <main>
-        <h1>About our website</h1>
-        <div>
+        <h2 class=text-h4>
+            About our website</h2>
+        <div class="pa-3">
             Welcome to our website!
             We are a team of passionate developers dedicated to creating useful tools and applications
             to enhance your productivity and simplify your daily tasks. Our mission is to provide you with intuitive and
@@ -31,10 +32,16 @@
             website enriches your life in meaningful ways.
 
         </div>
-        <div class="workers-pic">
-            <v-img src="../../../assets/pictures/worker3.webp" alt="" class=""></v-img>
-            <v-img src="../../../assets/pictures/worker1.jpg" alt="" class=""></v-img>
-        </div>
+        <!-- <v-image :src="require('@/assets/Images/worker1.jpg')" alt="Woker 1"></v-image> -->
+
+
 
     </main>
 </template>
+<style scoped>
+h2,
+div {
+    text-align: center;
+    color: #0f2950;
+}
+</style>

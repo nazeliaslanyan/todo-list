@@ -63,18 +63,24 @@ export default {
           this.toggleLoading();
         })
     },
-    onChangeStatus(editingTask) {
-      this.toggleLoading();
+    onChangeStatus() {
+      this.task.status === 'active' ? this.task.status = 'done' : this.task.status = 'active';
+      this.toggleLoading()
       taskApi
-        .updateTask(editingTask)
+        .updateTask(this.task)
         .then(() => {
-          this.task.status = editingTask.status === 'active' ? 'done' : 'active';
-          let message = this.task.status === 'done' ? 'The task have been done!' : 'The task have been active!';
-          this.$toast.success(message);
+          let message;
+          if (this.task.status === 'done') {
+            message = 'The task is Done successfully!'
+          }
+          else {
+            message = 'The task is restored successfully!'
+          }
+          this.$toast.success(message)
         })
         .catch(this.handleError)
         .finally(() => {
-          this.toggleLoading();
+          this.toggleLoading()
         })
     },
     onDelete() {

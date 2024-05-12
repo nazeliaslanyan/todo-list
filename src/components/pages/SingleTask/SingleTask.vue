@@ -22,9 +22,8 @@
 
 
     <v-card-actions>
-      <v-btn color="success" variant="elevated" @click="onChangeStatus">
-
-        <v-icon v-if="active" icon="mdi-check-outline" />
+      <v-btn :color="checked" variant="elevated" @click="onChangeStatus">
+        <v-icon v-if="task.status === 'active'" icon="mdi-check-outline" />
         <v-icon v-else icon="mdi mdi-restore" />
       </v-btn>
       <v-btn color="warning" variant="elevated" @click="toggleTaskModal">
