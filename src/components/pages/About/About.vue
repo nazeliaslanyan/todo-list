@@ -65,7 +65,6 @@ div {
     margin-right: auto;
     display: block;
     transition: transform 0.3s ease;
-
 }
 
 .picture1:hover {

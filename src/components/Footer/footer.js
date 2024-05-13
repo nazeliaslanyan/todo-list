@@ -12,8 +12,7 @@ export default {
                 { icon: 'mdi-facebook', path: 'https://www.facebook.com' },
                 { icon: 'mdi-linkedin', path: 'https://linkedin.com/' },
                 { icon: 'mdi-instagram', path: 'https://www.instagram.com' }
-            ],
+            ]
         }
-    },
-
+    }
 }

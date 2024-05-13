@@ -1,23 +1,26 @@
-import { mapMutations } from 'vuex';
-import FormApi from '../../../utils/formApi.js';
-const formApi = new FormApi();
+import FormApi from '../../../utils/formApi.js'
+import { mapMutations } from 'vuex'
 
-const emailRegex = /^\S+@\S+\.\S+$/;
+const formApi = new FormApi()
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 export default {
-    data: () => ({
-        name: '',
-        email: '',
-        message: '',
-        nameRules: [(v) => !!v || 'Name is required'],
-        emailRules: [(v) => !!v || 'Email is required', (v) => emailRegex.test(v) || 'Invalid email']
-    }),
+    data() {
+        return {
+            name: '',
+            email: '',
+            message: '',
+            nameRules: [(v) => !!v || 'Name is required'],
+            emailRules: [(v) => !!v || 'Email is required', (v) => emailRegex.test(v) || 'Invalid email'],
+            emailSent: false,
+            messageSent: {}
+        }
+    },
 
     methods: {
         ...mapMutations(['toggleLoading']),
-
-        async send() {
+        async sendForm() {
             const isValid = await this.validate()
-            console.log('isValid', isValid)
             if (!isValid) {
                 return
             }
@@ -26,19 +29,24 @@ export default {
                 email: this.email,
                 message: this.message
             }
-            this.toggleLoading();
-            formApi
-                .sendForm(form)
+            formApi.sendForm(form)
                 .then(() => {
-                    this.reset();
-                    this.$toast.success('The form has been send!');
+                    console.log('then got object', form)
+                    this.messageSent = { ...form }
+                    this.emailSent = true;
+                    this.reset()
+                    this.$toast.success('Your message has been sent!')
                 })
                 .catch(this.handleError)
                 .finally(() => {
-                    this.toggleLoading();
-                })
-        },
+                    console.log('finally - messageSent ', this.messageSent)
 
+                })
+            // send form
+            // formApi.sendForm(form)
+            // if success this.reset()
+            // show notification
+        },
         async validate() {
             const { valid } = await this.$refs.form.validate()
             return valid
@@ -46,8 +54,13 @@ export default {
         reset() {
             this.$refs.form.reset()
         },
-        handleError(error) {
-            this.$toast.error(error.message);
+        handleError(err) {
+            this.$toast.error(err.message)
+            console.log('catch --- Error')
         },
+        toggleMessage() {
+            this.emailSent = !this.emailSent
+        }
+
     }
 }

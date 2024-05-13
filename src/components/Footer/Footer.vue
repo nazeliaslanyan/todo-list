@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-footer app class="footer">
+    <v-footer app class="footer" fixed>
       <v-container>
         <v-row>
 

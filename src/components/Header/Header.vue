@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar color=#f8f9fa class="nav-menu">
+    <v-app-bar color=#f8f9fa class="nav-menu" fixed>
 
       <v-container>
         <v-row align="center">
