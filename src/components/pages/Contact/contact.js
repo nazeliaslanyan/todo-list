@@ -31,7 +31,6 @@ export default {
             }
             formApi.sendForm(form)
                 .then(() => {
-                    console.log('then got object', form)
                     this.messageSent = { ...form }
                     this.emailSent = true;
                     this.reset()
@@ -39,13 +38,7 @@ export default {
                 })
                 .catch(this.handleError)
                 .finally(() => {
-                    console.log('finally - messageSent ', this.messageSent)
-
                 })
-            // send form
-            // formApi.sendForm(form)
-            // if success this.reset()
-            // show notification
         },
         async validate() {
             const { valid } = await this.$refs.form.validate()
@@ -56,7 +49,6 @@ export default {
         },
         handleError(err) {
             this.$toast.error(err.message)
-            console.log('catch --- Error')
         },
         toggleMessage() {
             this.emailSent = !this.emailSent
