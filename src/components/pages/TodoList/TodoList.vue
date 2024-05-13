@@ -47,8 +47,8 @@ h2 {
 
 .delete-selected-btn {
   position: fixed;
-  right: -156px;
-  bottom: 40px;
+  right: -146px;
+  bottom: 140px;
 }
 
 .delete-selected-btn:hover {

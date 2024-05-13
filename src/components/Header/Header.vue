@@ -1,23 +1,48 @@
 <template>
-  <v-layout class="pt-4 pb-4">
-    <v-app-bar class="py-2" :elevation="1">
-      <!-- <v-toolbar-side-icon>
-        <v-img :src="require('@/assets/to-do-list-icon.png')"></v-img>
-      </v-toolbar-side-icon> -->
-      <v-btn v-for="menuItem in menuItems" :key="menuItem.title" rounded="xl" variant="text" class="mx-4">
-        <RouterLink :to="menuItem.path" class="text-decoration-none active-link">{{
-          menuItem.title }}
-        </RouterLink>
-      </v-btn>
+  <v-app>
+    <v-app-bar color=#f8f9fa class="nav-menu">
+
+      <v-container>
+        <v-row align="center">
+          <v-col cols="auto">
+            <v-img :src="logoPage" alt="to-do-list-logo" class="logo"></v-img>
+          </v-col>
+          <v-col cols="auto">
+            <router-link v-for="menuItem in menuItems" :key="menuItem.path" :to="menuItem.path" class="nav-link"
+              :active-class="'active-link'">
+              {{ menuItem.title }}
+            </router-link>
+          </v-col>
+        </v-row>
+      </v-container>
+
     </v-app-bar>
-  </v-layout>
+  </v-app>
 </template>
-<style>
-.active-link {
+<style scoped>
+.nav-menu {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.nav-link {
+  text-decoration: none;
   color: #0f2950;
-  background-color: #f8f9fa;
-  border-radius: 4px;
+  padding: 0 10px;
+
+}
+
+.nav-link:hover {
+  color: #efa00b;
+}
+
+.logo {
+  width: 90px;
+  height: auto;
+  transform: scale(1.1);
+
 }
 </style>
-
 <script src="./header.js"></script>

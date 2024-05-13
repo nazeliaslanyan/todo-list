@@ -1,19 +1,16 @@
-import { mapGetters } from 'vuex'
+import logoPage from '@/assets/logoPage.png';
 export default {
-    computed: {
-        ...mapGetters([]),
-        isOpen() { }
-    },
 
     data() {
         return {
+            logoPage: logoPage,
             menuItems: [
-                { title: 'Home', path: '/' },
-                { title: 'About Us', path: '/about' },
-                { title: 'Contact Us', path: '/contact-us' }
+                { title: 'HOME', path: '/' },
+                { title: 'ABOUT US', path: '/about' },
+                { title: 'CONTACT US', path: '/contact-us' }
             ]
 
-
         }
+
     }
 }

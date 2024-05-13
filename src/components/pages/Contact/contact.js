@@ -1,6 +1,8 @@
+import { mapMutations } from 'vuex';
 import FormApi from '../../../utils/formApi.js';
+const formApi = new FormApi();
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailRegex = /^\S+@\S+\.\S+$/;
 export default {
     data: () => ({
         name: '',
@@ -11,7 +13,9 @@ export default {
     }),
 
     methods: {
-        async sendForm() {
+        ...mapMutations(['toggleLoading']),
+
+        async send() {
             const isValid = await this.validate()
             console.log('isValid', isValid)
             if (!isValid) {
@@ -22,18 +26,17 @@ export default {
                 emeil: this.email,
                 message: this.message
             }
-            try {
-                const formApi = new FormApi();
-                const response = await formApi.sendForm(form);
-                if (response.success) {
+            this.toggleLoading();
+            formApi
+                .sendForm(form)
+                .then(() => {
                     this.reset();
-                    this.$toast.success('Form submitted successfully');
-                } else {
-                    this.$toast.error('Failed to submit form. Please try again later.');
-                }
-            } catch (error) {
-                this.$toast.error('An error occurred while submitting the form. Please try again later.');
-            }
+                    this.$toast.success('The form has been send!');
+                })
+                .catch(this.handleError)
+                .finally(() => {
+                    this.toggleLoading();
+                })
         },
 
         async validate() {
@@ -42,6 +45,9 @@ export default {
         },
         reset() {
             this.$refs.form.reset()
-        }
+        },
+        handleError(error) {
+            this.$toast.error(error.message);
+        },
     }
 }

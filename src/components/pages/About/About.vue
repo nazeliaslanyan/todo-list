@@ -32,30 +32,25 @@
 
         </v-card-text>
 
-        <div>
-            <div class="picture1">
-                <img :src="aboutUsPic1" alt="worker-pic">
-            </div>
-            <div class="picture1">
-                <img :src="aboutUsPic2" alt="worker-pic">
-            </div>
+
+        <div class="picture1">
+            <img :src="aboutUsPic1" alt="worker-pic">
         </div>
-    </main>
+        < </main>
 </template>
 
 <script>
 import aboutUsPic1 from '@/assets/worker1.jpg';
-import aboutUsPic2 from '@/assets/worker3.webp';
 
 export default {
     data() {
         return {
-            aboutUsPic1: aboutUsPic1,
-            aboutUsPic2: aboutUsPic2
+            aboutUsPic1: aboutUsPic1
         }
     }
 }
 </script>
+
 <style scoped>
 h2,
 div {
@@ -63,10 +58,14 @@ div {
     color: #0f2950;
 }
 
-.picture2 {
-    width: 600px;
-    height: 300px;
-    margin: 80px 40px;
-    border-radius: 7px;
+.picture1 {
+    margin-top: 50px;
+    /* Move the element down from the top */
+    width: 50px;
+    /* Set the width of the element */
+    text-align: center;
+    /* Center the content horizontally */
+    font-size: 24px;
+
 }
 </style>
