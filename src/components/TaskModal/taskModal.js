@@ -58,7 +58,6 @@ export default {
 
     onTitleInput(event) {
       this.title = event.target.value
-
     }
   },
   computed: {

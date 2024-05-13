@@ -32,5 +32,4 @@ h2 {
 }
 </style>
 
-<script src="./contact.js">
-</script>
+<script src="./contact.js"></script>

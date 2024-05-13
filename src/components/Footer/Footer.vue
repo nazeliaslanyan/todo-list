@@ -34,14 +34,13 @@
             <ul>
               <li><a href="https://www.facebook.com/" target="_blank"> <i
                     class="fa-brands fa-facebook web-icon"></i></a>
-
               </li>
+
               <li><a href="https://github.com/nazeliaslanyan" target="_blank"><i class="fa-brands fa-github"></i></a>
-
               </li>
+
               <li><a href="https://www.linkedin.com/in/nazeli-aslanyan-b74aba24a/" target="_blank"><i
                     class="fa-brands fa-linkedin web-icon"></i></a>
-
               </li>
             </ul>
           </v-col>
@@ -50,6 +49,8 @@
     </v-footer>
   </v-app>
 </template>
+
+
 <style scoped>
 .footer {
   background-color: #1b3d68;
@@ -71,13 +72,11 @@ h3 {
 ul li:hover {
   color: #e09c37;
   padding-left: 8px;
-
 }
 
 a:hover {
   color: #e09c37;
   padding-left: 8px;
-
 }
 
 ul {

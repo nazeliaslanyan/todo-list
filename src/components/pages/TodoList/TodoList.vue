@@ -36,7 +36,8 @@
 
 </template>
 
-<script src="./todoList.js"></script>./Todolist/todoList.js./Todolist/todoList.js./todolist.js./todolist.js
+
+<script src="./todoList.js"></script>
 
 <style scoped>
 h4,

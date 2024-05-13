@@ -29,14 +29,14 @@
             that power to create solutions that make a difference. Thank you for joining us on this journey, and we hope
             our
             website enriches your life in meaningful ways.
-
         </v-card-text>
 
 
         <div class="picture1">
             <img :src="aboutUsPic1" alt="worker-pic">
         </div>
-        < </main>
+
+    </main>
 </template>
 
 <script>
@@ -60,12 +60,20 @@ div {
 
 .picture1 {
     margin-top: 50px;
-    /* Move the element down from the top */
-    width: 50px;
-    /* Set the width of the element */
-    text-align: center;
-    /* Center the content horizontally */
-    font-size: 24px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transition: transform 0.3s ease;
 
+}
+
+.picture1:hover {
+    transform: scale(1.2);
+    filter: grayscale(50%);
+    opacity: 0.9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 </style>

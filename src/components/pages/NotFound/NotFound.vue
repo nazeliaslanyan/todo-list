@@ -7,8 +7,9 @@
     </div>
 </template>
 
+
 <script>
-import notFoundImage from '@/assets/FOR-WEB-404-astronaut.jpg';
+import notFoundImage from '@/assets/error404.jpg';
 
 export default {
     data() {
@@ -18,6 +19,7 @@ export default {
     }
 }
 </script>
+
 
 <style scoped>
 .not-found {

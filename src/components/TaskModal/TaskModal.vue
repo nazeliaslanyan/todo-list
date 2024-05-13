@@ -32,10 +32,10 @@
     </div>
 </template>
 
-<script src="./taskModal.js"></script>
-
 <style>
 .invalid .v-input__control {
     border: 1px solid red;
 }
 </style>
+
+<script src="./taskModal.js"></script>

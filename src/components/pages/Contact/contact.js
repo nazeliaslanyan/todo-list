@@ -23,7 +23,7 @@ export default {
             }
             const form = {
                 name: this.name,
-                emeil: this.email,
+                email: this.email,
                 message: this.message
             }
             this.toggleLoading();

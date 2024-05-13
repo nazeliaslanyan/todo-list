@@ -13,8 +13,8 @@ export default {
     ...mapGetters(['isLoading'])
   }
 }
-
 </script>
+
 <template>
   <Loader v-if="isLoading" />
   <HeaderComponent />

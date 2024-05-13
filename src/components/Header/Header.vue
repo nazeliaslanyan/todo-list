@@ -19,6 +19,8 @@
     </v-app-bar>
   </v-app>
 </template>
+
+
 <style scoped>
 .nav-menu {
   width: 100%;
@@ -31,7 +33,6 @@
   text-decoration: none;
   color: #0f2950;
   padding: 0 10px;
-
 }
 
 .nav-link:hover {
@@ -42,7 +43,7 @@
   width: 90px;
   height: auto;
   transform: scale(1.1);
-
 }
 </style>
+
 <script src="./header.js"></script>
