@@ -27,7 +27,7 @@ export default {
             const form = {
                 name: this.name,
                 email: this.email,
-                message: this.message
+                message: this.message || ' '
             }
             formApi.sendForm(form)
                 .then(() => {
