@@ -33,8 +33,7 @@
           </v-card-item>
           <RouterLink to="/">
             <v-btn color="primary" @click="toggleMessage">
-              Back to main page
-            </v-btn>
+              ⟸ main page </v-btn>
           </RouterLink>
         </v-card>
       </v-col>
