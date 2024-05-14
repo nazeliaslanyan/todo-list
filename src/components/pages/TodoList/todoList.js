@@ -162,6 +162,7 @@ export default {
       }
     },
     onStatusChange(updatedTask) {
+      this.toggleLoading();
       this.onTaskUpdate(updatedTask)
         .then(() => {
           let message
@@ -173,6 +174,9 @@ export default {
           this.$toast.success(message)
         })
         .catch(this.handleError)
+        .finally(() => {
+          this.toggleLoading();
+        })
     }
   }
 }

@@ -40,6 +40,7 @@ export default {
     },
 
     getTask() {
+      this.toggleLoading();
       const taskId = this.$route.params.taskId
       taskApi
         .getSingleTask(taskId)
@@ -47,11 +48,13 @@ export default {
           this.task = task
         })
         .catch(this.handleError)
+        .finally(() => {
+          this.toggleLoading();
+        })
     },
 
     onTaskSave(editingTask) {
       this.toggleLoading();
-      this.task = editingTask;
       taskApi
         .updateTask(editingTask)
         .then(() => {
@@ -63,18 +66,18 @@ export default {
           this.toggleLoading();
         })
     },
-    onChangeStatus() {
-      this.task.status === 'active' ? this.task.status = 'done' : this.task.status = 'active';
+    onChangeStatus(editingTask) {
       this.toggleLoading()
+      this.task.status = editingTask.status === 'active' ? 'done' : 'active';
       taskApi
-        .updateTask(this.task)
+        .updateTask(editingTask)
         .then(() => {
           let message;
           if (this.task.status === 'done') {
-            message = 'The task is Done successfully!'
+            message = 'The task has been done!'
           }
           else {
-            message = 'The task is restored successfully!'
+            message = 'The task has been restored!'
           }
           this.$toast.success(message)
         })

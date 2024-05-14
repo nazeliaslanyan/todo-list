@@ -1,4 +1,5 @@
 import '@fortawesome/fontawesome-free/css/all.css';
+import '../Footer/footer.css'
 
 export default {
     data() {

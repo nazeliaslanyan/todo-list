@@ -48,43 +48,4 @@
 </template>
 
 
-<style scoped>
-.footer {
-  background-color: #1b3d68;
-
-}
-
-h3 {
-  color: white;
-}
-
-.footer-col {
-  flex: 1;
-  padding: 0 15px;
-  text-align: start
-}
-
-ul li:hover {
-  color: #e09c37;
-  padding-left: 8px;
-}
-
-a:hover {
-  color: #e09c37;
-  padding-left: 8px;
-}
-
-ul {
-  list-style-type: none;
-  color: white;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-  font-size: larger;
-}
-</style>
-
-
 <script src="./footer.js"></script>

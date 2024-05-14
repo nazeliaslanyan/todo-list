@@ -12,8 +12,6 @@ export default {
             message: '',
             nameRules: [(v) => !!v || 'Name is required'],
             emailRules: [(v) => !!v || 'Email is required', (v) => emailRegex.test(v) || 'Invalid email'],
-            emailSent: false,
-            messageSent: {}
         }
     },
 
@@ -29,16 +27,14 @@ export default {
                 email: this.email,
                 message: this.message || ' '
             }
-            formApi.sendForm(form)
+            formApi
+                .sendForm(form)
                 .then(() => {
-                    this.messageSent = { ...form }
                     this.emailSent = true;
                     this.reset()
                     this.$toast.success('Your message has been sent!')
                 })
                 .catch(this.handleError)
-                .finally(() => {
-                })
         },
         async validate() {
             const { valid } = await this.$refs.form.validate()

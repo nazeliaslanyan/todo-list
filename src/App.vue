@@ -1,5 +1,6 @@
 <script>
 import { mapGetters } from 'vuex'
+import '../src/app.css';
 import Header from './components/Header/Header.vue'
 import Footer from './components/Footer/Footer.vue'
 import Loader from './components/Loader/Loader.vue'
@@ -25,18 +26,3 @@ export default {
     <FooterComponent />
   </div>
 </template>
-
-<style scoped>
-.wrapper {
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.main-container {
-  flex: 1 0 auto;
-}
-</style>

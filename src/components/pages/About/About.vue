@@ -29,18 +29,22 @@
             that power to create solutions that make a difference. Thank you for joining us on this journey, and we hope
             our
             website enriches your life in meaningful ways.
+
+            <div class="picture1">
+                <img :src="aboutUsPic1" alt="worker-pic">
+            </div>
+
         </v-card-text>
 
 
-        <div class="picture1">
-            <img :src="aboutUsPic1" alt="worker-pic">
-        </div>
+
 
     </main>
 </template>
 
 <script>
 import aboutUsPic1 from '@/assets/worker1.jpg';
+import '../About/about.css'
 
 export default {
     data() {
@@ -50,29 +54,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-h2,
-div {
-    text-align: center;
-    color: #0f2950;
-}
-
-.picture1 {
-    margin-top: 50px;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.picture1:hover {
-    transform: scale(1.2);
-    filter: grayscale(50%);
-    opacity: 0.9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-</style>

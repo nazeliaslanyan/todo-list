@@ -25,19 +25,6 @@
       </v-col>
     </v-row>
 
-    <v-row v-if="emailSent" align="center" justify="center">
-      <v-col cols="12" lg="12">
-        <v-card class="mx-auto my-8 w-100 pa-3" elevation="10" max-width="500">
-          <v-card-item class="pa-2 pl-4" align="center">
-            <v-card-title>Your email has been sent!</v-card-title>
-          </v-card-item>
-          <RouterLink to="/">
-            <v-btn color="primary" @click="toggleMessage">
-              ⟸ main page </v-btn>
-          </RouterLink>
-        </v-card>
-      </v-col>
-    </v-row>
 
   </v-container>
 </template>

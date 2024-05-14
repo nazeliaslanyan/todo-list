@@ -1,4 +1,5 @@
 import logoPage from '@/assets/logoPage.png';
+import '../Header/header.css'
 export default {
 
     data() {
