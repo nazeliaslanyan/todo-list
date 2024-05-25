@@ -1,0 +1,24 @@
+
+h2,
+div {
+    text-align: center;
+    color: #0f2950;
+}
+
+.picture1 {
+    margin-top: 50px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.picture1:hover {
+    transform: scale(1.2);
+    filter: grayscale(50%);
+    opacity: 0.9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}

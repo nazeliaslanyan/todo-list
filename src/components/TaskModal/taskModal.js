@@ -43,7 +43,7 @@ export default {
       if (this.dueDate) {
         task.date = this.dueDate.toISOString().slice(0, 10)
       } else {
-        task.date = " ";
+        task.date = '';
       }
 
       if (this.editingTask) {
@@ -58,7 +58,6 @@ export default {
 
     onTitleInput(event) {
       this.title = event.target.value
-
     }
   },
   computed: {
