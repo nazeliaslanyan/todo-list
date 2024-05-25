@@ -27,6 +27,7 @@ export default {
                 email: this.email,
                 message: this.message || ' '
             }
+            this.toggleLoading()
             formApi
                 .sendForm(form)
                 .then(() => {
@@ -35,6 +36,9 @@ export default {
                     this.$toast.success('Your message has been sent!')
                 })
                 .catch(this.handleError)
+                .finally(() => {
+                    this.toggleLoading()
+                })
         },
         async validate() {
             const { valid } = await this.$refs.form.validate()
