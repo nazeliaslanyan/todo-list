@@ -67,13 +67,17 @@ export default {
         })
     },
     onChangeStatus(editingTask) {
+      const editedTask = {
+        ...this.task,
+        status: this.task.status === 'active' ? 'done' : 'active'
+      }
       this.toggleLoading()
-      this.task.status = editingTask.status === 'active' ? 'done' : 'active';
       taskApi
         .updateTask(editingTask)
-        .then(() => {
+        .then((updatedTask) => {
+          this.task = updatedTask
           let message;
-          if (this.task.status === 'done') {
+          if (updatedTask.status === 'done') {
             message = 'The task has been done!'
           }
           else {
